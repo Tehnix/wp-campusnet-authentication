@@ -11,7 +11,7 @@ This plugin is for universities that uses CampusNet for their infrastructure and
 
 == Description ==
 
-Please be aware that this plugin uses your universities CampusNet system by contacting it directly. It also uses your universities authentication system. Usernames and passwords are stored as Wordpress users, so, they are just as secure as a normal Wordpress user would be.
+Please be aware that this plugin uses your universities CampusNet service by contacting it directly. It also uses your universities authentication system. Usernames and passwords are stored as Wordpress users, so, they are just as secure as a normal Wordpress user would be.
 
 This plugin is for universities that uses CampusNet for their infrastructure. 
 
