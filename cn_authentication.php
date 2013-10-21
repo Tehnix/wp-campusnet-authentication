@@ -1,14 +1,14 @@
 <?php
 /**
  * @package CampusNet_Authentication
- * @version 0.2
+ * @version 0.2.1
  */
 /*
 Plugin Name: CampusNet Authentication
 Plugin URI: http://wordpress.org/plugins/campusnet-authentication/
 Description: Use your universities CampusNet login via their API. It requires a user to be a member of a specific CampusNet group (defineable) to get access, that way, the administration of users is kept in one place (or, use group/elementid 0 to not use a group). For each user logging in, it makes sure that a wordpress user is created/exists, so if the CampuseNet API ever breaks, you can disable it and the users can login using the username and password they used earlier. NOTE: it adds a checkbox on the login page that sets if the user is a student or not.
 Author: Christian Kjaer Laustsen
-Version: 0.2
+Version: 0.2.1
 Author URI: http://codetalk.io
 */
 
@@ -16,19 +16,19 @@ Author URI: http://codetalk.io
 /**
  * The content of the admin settings page.
  */
-function cn_auth_admin() {
+function cnAuthAdmin() {
 	include('cn_admin.php');
 }
 
 /**
  * Add the plugin as a menu item under settings.
  */
-function cn_auth_admin_actions() {
-	add_options_page("CampusNet Authentication", "CampusNet Authentication", 'manage_options', "campusnet_authentication", "cn_auth_admin");
+function cnAuthAdminActions() {
+	add_options_page("CampusNet Authentication", "CampusNet Authentication", 'manage_options', "campusnet_authentication", "cnAuthAdmin");
 }
 
 /* Add settings menu item for the plugin */
-add_action('admin_menu', 'cn_auth_admin_actions');
+add_action('admin_menu', 'cnAuthAdminActions');
 
 
 /**

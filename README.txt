@@ -17,7 +17,7 @@ This plugin is for universities that uses CampusNet for their infrastructure.
 
 Use your university's CampusNet login via their API. It requires a user to be a member of a specific CampusNet group (defineable) to get access, that way, the administration of users is kept in one place (or, use group/elementid 0 to not use a group). For each user logging in, it makes sure that a wordpress user is created/exists, so if the CampuseNet API ever breaks, you can disable it and the users can login using the username and password they used earlier. 
 
-NOTE: since it tries to detect if a user is a student by checking if the first letter is s, you cannot have normal users with usernames that start with s.
+NOTE: it adds a checkbox on the login page that sets if the user is a student or not.
 
 == Installation ==
 
@@ -48,3 +48,7 @@ This is because student ids start with s, and therefore all usernames starting w
  
 = 0.2 =
  * Checkbox on login page to set if the user is a student or not (effectively telling if the plugin is used or not for the login)
+
+= 0.2.1 =
+ * Update README to reflect changes
+ * Change some functions names to keep style consistent
