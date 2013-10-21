@@ -19,7 +19,7 @@ Use your university's CampusNet login via their API. It requires a user to be a 
 
 NOTE: it adds a checkbox on the login page that sets if the user is a student or not.
 
-The best place to file a bug report of a feature request is using [Github issues](https://github.com/Tehnix/wp-campusnet-authentication/issues), which is checked far more often than the support section here (which, do not degress, I still do check).
+The best place to file a bug report or a feature request is using [Github issues](https://github.com/Tehnix/wp-campusnet-authentication/issues), which is checked far more often than the support section here (which, do not degress, I still do check).
 
 == Installation ==
 
@@ -49,3 +49,6 @@ You can set the element id to 0, and then it will ignore the group restriction.
 
 = 0.2.2 =
  * Remove unnecessary elements from fag, and put support link in the description section
+
+= 0.2.3 =
+ * Fix grammar in README
