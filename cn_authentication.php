@@ -1,14 +1,14 @@
 <?php
 /**
  * @package CampusNet_Authentication
- * @version 0.1
+ * @version 0.2
  */
 /*
 Plugin Name: CampusNet Authentication
-Plugin URI: 
-Description: Use your universities CampusNet login via their API. It requires a user to be a member of a specific CampusNet group (defineable) to get access, that way, the administration of users is kept in one place (or, use group/elementid 0 to not use a group). For each user logging in, it makes sure that a wordpress user is created/exists, so if the CampuseNet API ever breaks, you can disable it and the users can login using the username and password they used earlier. NOTE: since it tries to detect if a user is a student by checking if the first letter is s, you cannot have normal users with usernames that start with s.
+Plugin URI: http://wordpress.org/plugins/campusnet-authentication/
+Description: Use your universities CampusNet login via their API. It requires a user to be a member of a specific CampusNet group (defineable) to get access, that way, the administration of users is kept in one place (or, use group/elementid 0 to not use a group). For each user logging in, it makes sure that a wordpress user is created/exists, so if the CampuseNet API ever breaks, you can disable it and the users can login using the username and password they used earlier. NOTE: it adds a checkbox on the login page that sets if the user is a student or not.
 Author: Christian Kjaer Laustsen
-Version: 0.1
+Version: 0.2
 Author URI: http://codetalk.io
 */
 
@@ -278,8 +278,9 @@ function campusnetAuthenticationHook($user, $username, $password) {
 		return $error;
 	}
 	
-	// If the username starts with s, we use the CampusNet Authentication
-	if (strpos($username, 's') === 0) {
+	// If the checkbox for "Use student login" is checked, we handle it as a student login
+	$isStudent = filter_input(INPUT_POST, 'usestudentlogin', FILTER_VALIDATE_BOOLEAN);
+	if ($isStudent) {
 		try {
 			return authenticateAtCampusNet($username, $password);
 		} catch (Exception $e) { 
@@ -293,6 +294,22 @@ function campusnetAuthenticationHook($user, $username, $password) {
 
 /* Hook into the authentication filter */
 add_filter('authenticate', 'campusnetAuthenticationHook', 10, 3);
+
+
+/**
+ * Add a checkbox to set if the user is using a normal login, or a student login
+ */
+function useNormalLoginCheckbox() {
+	echo '<p class="studentlogin">
+		<label style="font-size:12px;" for="usestudentlogin">
+			<input name="usestudentlogin" type="checkbox" id="usestudentlogin" value="TRUE" checked>
+			Use student login
+		</label>
+	</p>';
+}
+
+/* Hook into the login form page */
+add_action('login_form', 'useNormalLoginCheckbox');
 
 
 ?>

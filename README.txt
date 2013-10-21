@@ -45,3 +45,6 @@ This is because student ids start with s, and therefore all usernames starting w
 = 0.1 =
  * Authentication against the CampusNet API is implemented
  * It creates a wordpress user with the users information in the database upon first login
+ 
+= 0.2 =
+ * Checkbox on login page to set if the user is a student or not (effectively telling if the plugin is used or not for the login)
