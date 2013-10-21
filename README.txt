@@ -19,6 +19,8 @@ Use your university's CampusNet login via their API. It requires a user to be a 
 
 NOTE: it adds a checkbox on the login page that sets if the user is a student or not.
 
+The best place to file a bug report of a feature request is using [Github issues](https://github.com/Tehnix/wp-campusnet-authentication/issues), which is checked far more often than the support section here (which, do not degress, I still do check).
+
 == Installation ==
 
 1. Upload the folder `wp-campusnet-authentication` to the `/wp-content/plugins/` directory
@@ -32,14 +34,6 @@ NOTE: it adds a checkbox on the login page that sets if the user is a student or
 
 You can set the element id to 0, and then it will ignore the group restriction.
 
-= I cannot login with my username that starts with s =
-
-This is because student ids start with s, and therefore all usernames starting with s are seen as potential ids and checked against the CampusNet authentication system.
-
-== Support ==
-
-[Github issues](https://github.com/Tehnix/wp-campusnet-authentication/issues)
-
 == Changelog ==
 
 = 0.1 =
@@ -52,3 +46,6 @@ This is because student ids start with s, and therefore all usernames starting w
 = 0.2.1 =
  * Update README to reflect changes
  * Change some functions names to keep style consistent
+
+= 0.2.2 =
+ * Remove unnecessary elements from fag, and put support link in the description section
