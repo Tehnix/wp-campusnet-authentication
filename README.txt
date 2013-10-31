@@ -2,7 +2,7 @@
 Contributors: Tehnix
 Tags: authentication, university, campusnet
 Requires at least: 3.0
-Tested up to: 3.6.1
+Tested up to: 3.7.1
 Stable tag: trunk
 License: BDS 2-clause
 License URI: http://opensource.org/licenses/BSD-2-Clause
@@ -39,6 +39,9 @@ The best place to file a bug report or a feature request is using [Github issues
 You can set the element id to 0, and then it will ignore the group restriction.
 
 == Changelog ==
+
+= 0.2.5 =
+ * Add drop-down to choose the default role of a new user logged in via the plugin
 
 = 0.2.4 =
  * Add styling to plugin description

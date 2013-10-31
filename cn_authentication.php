@@ -1,14 +1,14 @@
 <?php
 /**
  * @package CampusNet_Authentication
- * @version 0.2.4
+ * @version 0.2.5
  */
 /*
 Plugin Name: CampusNet Authentication
 Plugin URI: http://wordpress.org/plugins/campusnet-authentication/
 Description: Use your universities CampusNet login via their API. It requires a user to be a member of a specific CampusNet group (defineable) to get access, that way, the administration of users is kept in one place (or, use group/elementid 0 to not use a group). For each user logging in, it makes sure that a wordpress user is created/exists, so if the CampuseNet API ever breaks, you can disable it and the users can login using the username and password they used earlier. NOTE: it adds a checkbox on the login page that sets if the user is a student or not.
 Author: Christian Kjaer Laustsen
-Version: 0.2.4
+Version: 0.2.5
 Author URI: http://codetalk.io
 */
 
@@ -184,6 +184,7 @@ function makeSureUserExistsInWordpress($username, $password, $userinfo) {
 		$userid = wp_create_user($username, $password, $userinfo['email']);
 	}
 	if (!is_wp_error($userid)) {
+		$role = get_option('cn_auth_role');
 		$result = wp_insert_user(array(
 			'ID' => $userid,
 			'user_login' => $username,
@@ -191,7 +192,7 @@ function makeSureUserExistsInWordpress($username, $password, $userinfo) {
 			'user_email' => $userinfo['email'],
 			'first_name' => $userinfo['firstname'],
 			'last_name' => $userinfo['lastname'],
-			'role' => 'administrator',
+			'role' => $role ? $role : 'subscriber',
 			'display_name' => $userinfo['firstname'] . ' ' . $userinfo['lastname']
 		));
 	}
