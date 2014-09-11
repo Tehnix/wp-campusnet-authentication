@@ -40,6 +40,9 @@ You can set the element id to 0, and then it will ignore the group restriction.
 
 == Changelog ==
 
+= 0.2.6 =
+ * Add example in a comment on testing the API via CURL
+ 
 = 0.2.5 =
  * Add drop-down to choose the default role of a new user logged in via the plugin
 
