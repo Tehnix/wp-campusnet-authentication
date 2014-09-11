@@ -12,6 +12,14 @@ Version: 0.2.5
 Author URI: http://codetalk.io
 */
 
+/*
+NOTE: If you want to test the API locally, you can use CURL.
+Replace: myusername, mypassword, auth-token-received-from-previous-query and the uni with your university
+$ curl --data "username=myusername&password=mypassword" https://auth.uni.dk/uni/mobilapp.jsp
+$ curl -i -H "X-appname: DataBarAuth" -H "X-token: auth-token-received-from-previous-query" https://myusername:auth-token-received-from-previous-query@www.campusnet.uni.dk/data/CurrentUser/Elements/325101/FrontPage
+*/ 
+
+
 
 /**
  * The content of the admin settings page.
